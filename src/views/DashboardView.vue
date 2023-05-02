@@ -43,12 +43,12 @@ const globalStore = useGlobalStore()
             </div>
         </div>
 
-        <div class="w-full" v-else>
+        <div class="w-full flex flex-col gap-2" v-else>
             <AP_DashboardBlock :image="WindSpeedIcon" info="Brzina vjetra" value="49" measure="km/h" />
             <AP_DashboardBlock :image="WindDirectionIcon" info="Smjer vjetra" value="SSE" measure="(153)''" />
         </div>
 
-        <AP_DashboardBlock :image="SeaDepthIcon" info="Dubina mora" value="75" measure="m" />
+        <AP_DashboardBlock v-if="globalStore.admin" :image="SeaDepthIcon" info="Dubina mora" value="75" measure="m" />
 
         <AP_DashboardBlock v-if="globalStore.admin" :image="PHIcon" info="PH mora" value="8.1" measure="pH" />
         
@@ -93,6 +93,8 @@ const globalStore = useGlobalStore()
 
             <AP_DashboardBlock v-if="globalStore.admin" :image="SunIcon" info="Vrijednost insolacije" value="179.8" measure="kWh/m²" />
         </div>
+
+        <AP_DashboardBlock v-if="!globalStore.admin" :image="SeaDepthIcon" info="Dubina mora" value="75" measure="m" />
 
     </div>
 </template>
