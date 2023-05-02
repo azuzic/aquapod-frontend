@@ -2,17 +2,36 @@
 import AquapodLogo from "@/assets/logo/AquapodLogo.svg"
 import MenuIcon from "@/assets/icons/MenuIcon.svg"
 import SearchIcon from "@/assets/icons/SearchIcon.svg"
+import BackIcon from "@/assets/icons/BackIcon.svg"
 </script>
 
 <template>
     <div class="fixed top-0 w-full z-50 | transition-all duration-500"
-        :class="this.$route.name == 'Home' ? 'p-0' : 'p-4'">
+        :class="['Home', 'Login'].includes(this.$route.name) ? 'p-0' : 'p-4'">
         <div class="TopMenuBG h-14 w-full flex items-center | transition-all duration-500"
-            :class="this.$route.name == 'Home' ? 'BorderBottom rounded-[0px] pt-1.5 pl-4 pr-6 justify-between' : 'rounded-[200px] px-4 gap-4'">
-            <img v-if="this.$route.name == 'Home'" class="h-7" :src="AquapodLogo">
-            <img v-if="this.$route.name != 'Home'" class="h-7" :src="SearchIcon">
-            <input v-if="this.$route.name != 'Home'" class="bg-transparent w-full h-full outline-none text-AP_DarkFont text-lg placeholder:text-AP_SecondaryFont" placeholder="Search AquaPods..." type="text">
-            <img class="h-5" :src="MenuIcon">
+            :class="['Home', 'Login'].includes(this.$route.name) ? 'BorderBottom rounded-[0px] pt-1.5 pl-4 pr-6 justify-between' : 'rounded-[200px] px-4 gap-4'">
+            
+            <!--BACK BUTTON-->
+            <div v-if="['Login'].includes(this.$route.name)" class="flex items-center w-full h-full gap-1">
+                <div @click="$router.go(-1)" class="mb-1">
+                    <b class="text-3xl text-AP_DarkFont">{{ "<--" }}</b> 
+                </div> 
+                <div class="text-2xl text-AP_DarkFont">Natrag</div>
+            </div>
+            
+
+            <!--LOGO-->
+            <img v-if="['Home'].includes(this.$route.name)" class="h-7" :src="AquapodLogo">
+            
+            <!--SEARCH-->
+            <img v-if="['Map', 'Dashboard'].includes(this.$route.name )" class="h-7" :src="SearchIcon">
+            <input v-if="['Map', 'Dashboard'].includes(this.$route.name)" class="bg-transparent w-full h-full outline-none text-AP_DarkFont text-lg placeholder:text-AP_SecondaryFont" placeholder="Search AquaPods..." type="text">
+            
+            <!--LOGIN BUTTON-->
+            <router-link v-if="['Map', 'Dashboard', 'Home'].includes(this.$route.name)" to="/Login">
+                <img class="h-5" :src="MenuIcon">
+            </router-link>
+
         </div>
     </div>
 </template>
@@ -20,7 +39,7 @@ import SearchIcon from "@/assets/icons/SearchIcon.svg"
 <script>
 export default {
     name: "AP_TopMenu",
-    components: { AquapodLogo, MenuIcon, SearchIcon },
+    components: { },
     props: {},
     data() { return {} },
 }

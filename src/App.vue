@@ -1,8 +1,6 @@
 <script setup>
-    import { useGlobalStore } from '@/stores/globalStore';
     import AP_BottomMenu from '@/components/App/AP_BottomMenu.vue';
     import AP_TopMenu from '@/components/App/AP_TopMenu.vue';
-    const globalStore = useGlobalStore()
 </script>
 
 <template>

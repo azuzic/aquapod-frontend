@@ -8,6 +8,9 @@ import SeaTemperatureIcon from "@/assets/icons/SeaTemperatureIcon.svg"
 import AirTemperatureIcon from "@/assets/icons/AirTemperatureIcon.svg"
 import AP_DashboardBlock from '../components/Dashboard/AP_DashboardBlock.vue';
 import AP_DashboardBlockSquare from '../components/Dashboard/AP_DashboardBlockSquare.vue';
+import AP_TrashMeter from '../components/Dashboard/AP_TrashMeter.vue';
+import { useGlobalStore } from '@/stores/globalStore'
+const globalStore = useGlobalStore()
 </script>
 
 <template>
@@ -17,6 +20,8 @@ import AP_DashboardBlockSquare from '../components/Dashboard/AP_DashboardBlockSq
         <!--COUNTER-->
         <p class="font-bold text-5xl text-AP_AccentFont mt-4"> {{ counter.toLocaleString() }} </p>
         <p class="pt-2 mb-2 font-bold text-base text-AP_SecondaryFont">KG UKLONJENO</p>
+
+        <AP_TrashMeter v-if="globalStore.admin" :amount="75" />
 
         <AP_DashboardBlock :image="WindSpeedIcon" info="Brzina Vjetra" value="49" measure="km/h" />
         <AP_DashboardBlock :image="WindDirectionIcon" info="Smjer Vjetra" value="SSE" measure="(153)''" />
@@ -36,17 +41,18 @@ import AP_DashboardBlockSquare from '../components/Dashboard/AP_DashboardBlockSq
 <script>
 export default {
     name: "DashboardView",
-    components: { 
-        AP_AquaPodItem, 
-        NovigradBG, 
-        WindSpeedIcon, 
-        WindDirectionIcon, 
-        SeaTemperatureIcon, 
-        AirTemperatureIcon,
-        SeaDepthIcon,
-        AP_DashboardBlock, 
-        AP_DashboardBlockSquare 
-    },
+    components: {
+    AP_AquaPodItem,
+    NovigradBG,
+    WindSpeedIcon,
+    WindDirectionIcon,
+    SeaTemperatureIcon,
+    AirTemperatureIcon,
+    SeaDepthIcon,
+    AP_DashboardBlock,
+    AP_DashboardBlockSquare,
+    AP_TrashMeter
+},
     data() {
         return {
             counter: 560220

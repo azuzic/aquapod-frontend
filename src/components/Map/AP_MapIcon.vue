@@ -38,7 +38,7 @@ import BoatIcon from "@/assets/icons/BoatIcon.svg"
 <script>
 export default {
     name: "AP_MapIcon",
-    components: { SeaDepthIcon, SeaTemperatureIcon, WindSpeedIcon, BoatIcon },
+    components: { },
     props: { 
         city: String,
         temp: Number,

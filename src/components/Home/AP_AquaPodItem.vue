@@ -31,7 +31,7 @@ import WindSpeedIcon from "@/assets/icons/WindSpeedIcon.svg"
 <script>
 export default {
     name: "AP_AquaPodItem",
-    components: { SeaDepthIcon, SeaTemperatureIcon, WindSpeedIcon },
+    components: { },
     props: { 
         image: String,
         city: String,

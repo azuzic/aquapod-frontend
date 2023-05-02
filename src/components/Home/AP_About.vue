@@ -14,7 +14,7 @@ import AboutBG from "@/assets/images/aboutBG.svg"
 <script>
 export default {
     name: "AP_About",
-    components: { AboutBG },
+    components: { },
     props: {},
     data() {return {}},    
 }

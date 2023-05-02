@@ -4,6 +4,8 @@ import AP_About from "@/components/Home/AP_About.vue"
 import AP_AquaPodItem from "../components/Home/AP_AquaPodItem.vue";
 import NovigradBG from "@/assets/images/Novigrad.jpg"
 import PorecBG from "@/assets/images/Porec.jpg"
+import { useGlobalStore } from '@/stores/globalStore'
+const globalStore = useGlobalStore()
 </script>
 
 <template>
@@ -16,7 +18,8 @@ import PorecBG from "@/assets/images/Porec.jpg"
         </div>
 
         <!--COUNTER-->
-        <p class="font-bold text-5xl text-AP_AccentFont"> {{ counter.toLocaleString() }} </p>
+        <p class="font-bold text-5xl text-AP_AccentFont"> {{ globalStore.counter.toLocaleString() }} </p>
+        
         <p class="pt-2 mb-4 font-bold text-base text-AP_SecondaryFont">KG UKLONJENO</p>
 
         <!--ABOUT-->
@@ -24,8 +27,12 @@ import PorecBG from "@/assets/images/Porec.jpg"
 
         <!--AQUAPOD ITEMS-->
         <div class="flex flex-col w-full mt-8 gap-4">
-            <AP_AquaPodItem :image="NovigradBG" :city="'Novigrad'" :temp="20" :wind="49" :depth="75" />
-            <AP_AquaPodItem :image="PorecBG"    :city="'Poreč'"    :temp="19" :wind="62" :depth="86" />
+            <AP_AquaPodItem v-for="i in globalStore.geojson.features" 
+                                        :image="i.properties.image" 
+                                        :city="i.properties.city" 
+                                        :temp="i.properties.temp" 
+                                        :wind="i.properties.wind" 
+                                        :depth="i.properties.depth" />
         </div>
 
     </div>
@@ -34,12 +41,7 @@ import PorecBG from "@/assets/images/Porec.jpg"
 <script>
 export default {
     name: "HomeView",
-    components: { BoatImage, AP_About, AP_AquaPodItem, PorecBG, NovigradBG },
-    data() {
-        return {
-            counter: 33288417
-        }
-    },
+    components: { AP_About, AP_AquaPodItem }, 
 }
 </script>
 

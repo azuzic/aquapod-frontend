@@ -1,23 +1,19 @@
-<script setup>
-import MapImage from "@/assets/images/loading.gif"
-import AP_MapIcon from "@/components/Map/AP_MapIcon.vue";
-import SeaDepthIcon from "@/assets/icons/SeaDepthIcon.svg"
-import SeaTemperatureIcon from "@/assets/icons/SeaTemperatureIcon.svg"
-import WindSpeedIcon from "@/assets/icons/WindSpeedIcon.svg"
-import BoatIcon from "@/assets/icons/BoatIcon.svg"
-</script>
-
 <template>
     <div class="flex flex-col justify-center items-center w-full h-full bg-center bg-no-repeat"
         :style="'background-image: url(' + MapImage + ');'">
-
         <div class="absolute top-0 bottom-0 w-full h-full" id="map" ref="container">
         </div>
     </div>
 </template>
 
 <script>
-import mapboxgl from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+import MapImage from "@/assets/images/loading.gif"
+import SeaDepthIcon from "@/assets/icons/SeaDepthIcon.svg"
+import SeaTemperatureIcon from "@/assets/icons/SeaTemperatureIcon.svg"
+import WindSpeedIcon from "@/assets/icons/WindSpeedIcon.svg"
+import BoatIcon from "@/assets/icons/BoatIcon.svg"
+import { useGlobalStore } from '@/stores/globalStore'
+import mapboxgl from 'mapbox-gl';
 
 let wait = function (seconds) {
     return new Promise((resolveFn) => {
@@ -27,11 +23,16 @@ let wait = function (seconds) {
 
 export default {
     name: "MapView",
-    components: { MapImage, AP_MapIcon, SeaDepthIcon, SeaTemperatureIcon, WindSpeedIcon, BoatIcon },
+    components: { },
+    setup() {
+        const globalStore = useGlobalStore()
+        return { globalStore, MapImage, SeaDepthIcon, SeaTemperatureIcon, WindSpeedIcon, BoatIcon }
+    },
     async mounted() {
         await wait(1)
+        
         mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
-        return
+        
         const map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
@@ -39,40 +40,8 @@ export default {
             zoom: 10.5, // starting zoom
         });
 
-        const geojson = {
-            'type': 'FeatureCollection',
-            'features': [
-                {
-                    'type': 'Feature',
-                    'properties': {
-                        'city':'Novigrad',
-                        'temp':20,
-                        'wind':49, 
-                        'depth':75,
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [13.556810535332298, 45.31988787320131]
-                    }
-                },
-                {
-                    'type': 'Feature',
-                    'properties': {
-                        'city': 'Poreč',
-                        'temp': 19,
-                        'wind': 62,
-                        'depth': 86,
-                    },
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [13.59019098738821, 45.22490142794946]
-                    }
-                },
-            ]
-        };
-
         // Add markers to the map.
-        for (const marker of geojson.features) {
+        for (const marker of this.globalStore.geojson.features) {
             // Create a DOM element for each marker.
             const el = document.createElement('div');
             el.className = 'w-fit';
