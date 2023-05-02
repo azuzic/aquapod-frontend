@@ -24,11 +24,11 @@ import BackIcon from "@/assets/icons/BackIcon.svg"
             <img v-if="['Home'].includes(this.$route.name)" class="h-7" :src="AquapodLogo">
             
             <!--SEARCH-->
-            <img v-if="['Map', 'Dashboard'].includes(this.$route.name )" class="h-7" :src="SearchIcon">
-            <input v-if="['Map', 'Dashboard'].includes(this.$route.name)" class="bg-transparent w-full h-full outline-none text-AP_DarkFont text-lg placeholder:text-AP_SecondaryFont" placeholder="Search AquaPods..." type="text">
+            <img v-if="['Map', 'Dashboard', 'Warnings'].includes(this.$route.name )" class="h-7" :src="SearchIcon">
+            <input v-if="['Map', 'Dashboard', 'Warnings'].includes(this.$route.name)" class="bg-transparent w-full h-full outline-none text-AP_DarkFont text-lg placeholder:text-AP_SecondaryFont" placeholder="Search AquaPods..." type="text">
             
             <!--LOGIN BUTTON-->
-            <router-link v-if="['Map', 'Dashboard', 'Home'].includes(this.$route.name)" to="/Login">
+            <router-link v-if="['Map', 'Dashboard', 'Home', 'Warnings'].includes(this.$route.name)" to="/Login">
                 <img class="h-5" :src="MenuIcon">
             </router-link>
 

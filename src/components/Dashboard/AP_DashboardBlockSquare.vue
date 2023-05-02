@@ -1,13 +1,15 @@
 <template>
     <div class="w-full data flex flex-col py-4 justify-center items-center rounded-2xl gap-2">
-        <div class="text-2xl text-AP_SecondaryFont">
-            {{ info }}
+        <div class="w-full h-full flex flex-col justify-between items-center">
+            <div class="text-2xl text-AP_SecondaryFont text-center flex justify-center items-center h-full px-1">
+                {{ info }}
+            </div>
+            <div class="flex justify-center items-center max-w-[44px]">
+                <img class="icon w-11 h-12 mt-1" :src="image">
+            </div>
         </div>
-        <div class="flex justify-center items-center max-w-[44px]">
-            <img class="icon w-11" :src="image">
-        </div>
-        <div class="text-3xl text-AP_AccentFont">
-            {{ value }} <b class="text-AP_DarkFont">{{ measure }}</b>
+        <div class="text-3xl text-AP_AccentFont w-full flex justify-center items-center">
+            {{ value }} <b class="ml-1 text-AP_DarkFont">{{ measure }}</b>
         </div>
     </div>
 </template>

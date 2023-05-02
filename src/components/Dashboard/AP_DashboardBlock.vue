@@ -1,7 +1,7 @@
 <template>
-    <div class="w-full h-24 px-8 data flex items-center rounded-2xl gap-6">
+    <div class="w-full h-fit py-2 px-8 data flex items-center rounded-2xl gap-6">
         <div class="flex justify-center items-center max-w-[44px]">
-            <img class="icon w-11" :src="image">
+            <img class="icon w-32" :src="image">
         </div>
         <div class="flex flex-col gap-2">
             <div class="text-2xl text-AP_SecondaryFont">

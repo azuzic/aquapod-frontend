@@ -8,7 +8,7 @@ export const useGlobalStore = defineStore("globalStore", {
         counter: 33288417,
         email: "",
         password: "",
-        admin: false,
+        admin: true,
         geojson: {
             type: "FeatureCollection",
             features: [

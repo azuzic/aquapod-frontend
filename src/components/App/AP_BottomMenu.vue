@@ -19,13 +19,13 @@ const globalStore = useGlobalStore()
         <router-link v-if="globalStore.admin" to="/warnings">
             <img class="h-7" :src="this.$route.name != 'Warnings' ? WarningIcon : WarningFilledIcon">
         </router-link>
-        <router-link to="/Dashboard">
+        <router-link to="/dashboard">
             <img class="h-8" :src="this.$route.name != 'Dashboard' ? DashboardIcon : DashboardFilledIcon">
         </router-link>
         <router-link to="/">
             <img class="h-7" :src="this.$route.name != 'Home' ? HomeIcon : HomeFilledIcon">
         </router-link>
-        <router-link to="/Map">
+        <router-link to="/map">
             <img class="h-8" :src="this.$route.name != 'Map' ? MapIcon : MapFilledIcon">
         </router-link>
         <router-link v-if="globalStore.admin" to="/control-panel">
