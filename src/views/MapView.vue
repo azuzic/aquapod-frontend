@@ -30,9 +30,8 @@ export default {
     components: { MapImage, AP_MapIcon, SeaDepthIcon, SeaTemperatureIcon, WindSpeedIcon, BoatIcon },
     async mounted() {
         await wait(1)
-        console.log(import.meta.env.VITE_MAPBOX_KEY);
         mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
-        
+        return
         const map = new mapboxgl.Map({
             container: 'map', // container ID
             style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
