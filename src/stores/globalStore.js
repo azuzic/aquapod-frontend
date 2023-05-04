@@ -20,6 +20,7 @@ export const useGlobalStore = defineStore("globalStore", {
                         temp: 20,
                         wind: 49,
                         depth: 75,
+                        alert: "warningIcon",
                     },
                     geometry: {
                         type: "Point",
@@ -34,6 +35,7 @@ export const useGlobalStore = defineStore("globalStore", {
                         temp: 19,
                         wind: 62,
                         depth: 86,
+                        alert: "dangerIcon",
                     },
                     geometry: {
                         type: "Point",

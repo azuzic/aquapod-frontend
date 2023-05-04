@@ -19,7 +19,6 @@ export default {
     name: "AP_DashboardBlockSquare",
     props: {
         image: String,
-        imageSize: Number,
         info: String,
         value: String,
         measure: String,

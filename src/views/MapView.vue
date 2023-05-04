@@ -3,13 +3,16 @@
         :style="'background-image: url(' + MapImage + ');'">
         <div class="absolute top-0 bottom-0 w-full h-full" id="map" ref="container">
         </div>
+        
     </div>
 </template>
 
 <script>
+import AP_MapIcon from '@/components/Map/AP_MapIcon.vue';
 import MapImage from "@/assets/images/loading.gif"
 import SeaDepthIcon from "@/assets/icons/SeaDepthIcon.svg"
 import SeaTemperatureIcon from "@/assets/icons/SeaTemperatureIcon.svg"
+import WarningFilledIcon from "@/assets/icons/WarningFilledIcon.svg"
 import WindSpeedIcon from "@/assets/icons/WindSpeedIcon.svg"
 import BoatIcon from "@/assets/icons/BoatIcon.svg"
 import { useGlobalStore } from '@/stores/globalStore'
@@ -23,7 +26,7 @@ let wait = function (seconds) {
 
 export default {
     name: "MapView",
-    components: { },
+    components: { AP_MapIcon },
     setup() {
         const globalStore = useGlobalStore()
         return { globalStore, MapImage, SeaDepthIcon, SeaTemperatureIcon, WindSpeedIcon, BoatIcon }
@@ -65,6 +68,7 @@ export default {
                 '</div>'+
                 '<div class="markerArrow h-5 w-5 z-0"></div>'+
                 '<img class="absolute w-10" src="'+BoatIcon+'">'+
+                (this.globalStore.admin ? '<img class="absolute mb-8 ml-12 w-5 '+ marker.properties.alert +'" src="'+WarningFilledIcon+'" >' : '')+
             '</div>'
 
             // Add markers to the map.
@@ -95,5 +99,11 @@ export default {
     background: linear-gradient(180deg, rgba(218, 235, 255, 0.9) 0%, rgba(218, 255, 251, 0.9) 100%);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     transform: matrix(0.75, 0.66, -0.75, 0.66, 0, 0);
+}
+.warningIcon {
+    filter: invert(66%) sepia(68%) saturate(493%) hue-rotate(1deg) brightness(99%) contrast(91%);
+}
+.dangerIcon {
+    filter: invert(16%) sepia(78%) saturate(4356%) hue-rotate(327deg) brightness(89%) contrast(78%);
 }
 </style>
