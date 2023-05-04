@@ -11,7 +11,7 @@ const globalStore = useGlobalStore()
     <div class="flex flex-col justify-center items-center py-20 w-full">
 
         <!--HOME IMAGE-->
-        <div v-if="!globalStore.admin" class="mx-4 rounded-3xl overflow-hidden relative">
+        <div v-if="!globalStore.admin" class="mx-4 mb-4 rounded-3xl overflow-hidden relative">
             <img class="z-10" :src="BoatImage">
             <div class="absolute homeImageBG w-full h-full z-20 top-0 left-0"></div>
         </div>
