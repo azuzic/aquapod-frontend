@@ -23,7 +23,7 @@ const globalStore = useGlobalStore()
 
         <AP_Checkbox label="Kamera upaljena"/>
 
-        <button @click="globalStore.login() ? $router.push('/') : ''" class="btn text-AP_DarkFont font-bold text-2xl px-20 py-3 rounded-full">
+        <button class="btn text-AP_DarkFont font-bold text-2xl px-20 py-3 rounded-full">
             Kamera
         </button>
     </div>
