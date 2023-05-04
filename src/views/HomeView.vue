@@ -34,7 +34,7 @@ const globalStore = useGlobalStore()
                                         :depth="i.properties.depth" />
         </div>
 
-        <div class="flex flex-col w-full mt-4 gap-2 px-4">
+        <div v-if="globalStore.admin" class="flex flex-col w-full mt-4 gap-2 px-4">
             <div class="w-full border-2  border-AP_DarkFont rounded-full"></div>
             <div class="text-2xl w-full text-AP_DarkFont font-bold mb-2">Upozorenja</div>
      
