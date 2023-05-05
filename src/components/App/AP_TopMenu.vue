@@ -16,21 +16,23 @@ const globalStore = useGlobalStore()
             <!--BACK BUTTON-->
             <div v-if="['Login'].includes(this.$route.name)" class="flex items-center w-full h-full gap-1">
                 <div @click="$router.go(-1)" class="mb-1">
-                    <b class="text-3xl text-AP_DarkFont">{{ "<--" }}</b> 
+                    <b class="text-3xl text-AP_DarkFont cursor-pointer">{{ "<--" }}</b> 
                 </div> 
                 <div class="text-2xl text-AP_DarkFont">Natrag</div>
             </div>
 
             <!--LOGO-->
-            <img v-if="['Home', 'Warnings'].includes(this.$route.name)" class="h-7" :src="AquapodLogo">
+            <router-link to="/">
+            <img v-if="['Home', 'Warnings'].includes(this.$route.name)" class="h-7 cursor-pointer" :src="AquapodLogo">
+            </router-link>
             
             <!--SEARCH-->
-            <img v-if="['Map', 'Dashboard', 'ControlPanel'].includes(this.$route.name )" class="h-7" :src="SearchIcon">
+            <img v-if="['Map', 'Dashboard', 'ControlPanel'].includes(this.$route.name )" class="h-7 absolute left-4" :src="SearchIcon">
             <AP_searchInput v-if="['Map', 'Dashboard', 'ControlPanel'].includes(this.$route.name)"/>
 
             <!--LOGIN BUTTON-->
-            <router-link v-if="['Map', 'Dashboard', 'Home', 'Warnings', 'ControlPanel'].includes(this.$route.name)" to="/Login">
-                <img class="h-5" :src="MenuIcon">
+            <router-link class="relative h-6 w-6" v-if="['Map', 'Dashboard', 'Home', 'Warnings', 'ControlPanel'].includes(this.$route.name)" to="/Login">
+                <img class="absolute h-full cursor-pointer z-50" :src="MenuIcon">
             </router-link>
 
         </div>

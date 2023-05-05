@@ -113,7 +113,7 @@ export default {
             const el = document.createElement('div');
             el.className = 'w-fit';
             el.innerHTML = ''+
-            '<div class="flex flex-col justify-center items-center h-16 bg-cover bg-center relative p-2">'+
+            '<div class="flex flex-col justify-center items-center h-16 bg-cover bg-center relative p-2 cursor-pointer">'+
                 '<div class="absolute -top-20 markerBG rounded-xl w-full h-full z-20 left-0"></div>'+
                 '<p class="relative -top-20 w-full text-lg text-AP_DarkFont z-50"> Aquapod: <b> '+ marker.properties.city+' </b> </p>'+
                 '<div class="relative -top-20 flex w-full justify-center items-center text-lg text-white z-50 gap-4">'+
