@@ -3,7 +3,7 @@
 
         <div class="text-2xl w-full text-AP_DarkFont font-bold mb-2">Upozorenja</div>
 
-        <AP_dropdowninput  @selected="retrieveValue" :label="selected" :list="list"/>
+        <AP_dropdowninput @selected="retrieveValue" :label="selected" :list="list"/>
      
         <AP_WarningBlock v-if="selected == 'Koš za smeće'" info="Karigador" text="Koš za smeće se zaglavio!" value="" measure="" :warning="false"/>
         <AP_WarningBlock v-if="selected == 'Koš za smeće'" info="Novigrad" text="Koš napunjen" value="75" measure="%" :warning="true"/>

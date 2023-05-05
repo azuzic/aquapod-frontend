@@ -31,7 +31,8 @@ const globalStore = useGlobalStore()
                                         :city="i.properties.city" 
                                         :temp="i.properties.temp" 
                                         :wind="i.properties.wind" 
-                                        :depth="i.properties.depth" />
+                                        :depth="i.properties.depth" 
+                                        @click="globalStore.activePod = i; $router.push('/dashboard')"/>
         </div>
 
         <div v-if="globalStore.admin" class="flex flex-col w-full mt-4 gap-2 px-4">

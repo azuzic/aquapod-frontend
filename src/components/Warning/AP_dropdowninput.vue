@@ -28,7 +28,7 @@ import ArrowIcon from "@/assets/icons/ArrowIcon.svg"
 
 <script>
 export default {
-    name: "MQ_dropdownInput",
+    name: "AP_dropdownInput",
     props: {
         label: String,
         list: Array,

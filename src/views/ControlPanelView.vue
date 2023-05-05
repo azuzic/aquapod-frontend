@@ -1,7 +1,6 @@
 <script setup>
 import AP_AquaPodItem from '@/components/Dashboard/AP_AquaPodItem.vue';
 import AP_Checkbox from '@/components/ControlPanel/AP_Checkbox.vue';
-import NovigradBG from "@/assets/images/Novigrad.jpg"
 import SpinIcon from "@/assets/icons/SpinIcon.svg"
 import VoltageIcon from "@/assets/icons/VoltageIcon.svg"
 import { useGlobalStore } from '@/stores/globalStore'
@@ -11,7 +10,7 @@ const globalStore = useGlobalStore()
 
 <template>
     <div class="flex flex-col justify-center items-center py-24 w-full px-4 gap-2">
-        <AP_AquaPodItem :image="NovigradBG" :city="'Novigrad'" :north="45.3157" :east="13.5619" />
+        <AP_AquaPodItem :image="globalStore.activePod.properties.image" :city="globalStore.activePod.properties.city" :north="globalStore.activePod.geometry.coordinates[1].toFixed(4)" :east="globalStore.activePod.geometry.coordinates[0].toFixed(4)" />
 
         <AP_Checkbox label="Pumpa upaljena"/>
 
