@@ -1,26 +1,25 @@
 <script setup>
-import AP_AquaPodItem from '@/components/Dashboard/AP_AquaPodItem.vue';
-import NovigradBG from "@/assets/images/Novigrad.jpg"
-import WindSpeedIcon from "@/assets/icons/WindSpeedIcon.svg"
-import WindDirectionIcon from "@/assets/icons/WindDirectionIcon.svg"
-import SeaDepthIcon from "@/assets/icons/SeaDepthIcon.svg"
-import SeaTemperatureIcon from "@/assets/icons/SeaTemperatureIcon.svg"
-import AirTemperatureIcon from "@/assets/icons/AirTemperatureIcon.svg"
-import AP_DashboardBlock from '@/components/Dashboard/AP_DashboardBlock.vue';
-import AP_DashboardBlockSquare from '@/components/Dashboard/AP_DashboardBlockSquare.vue';
-import AP_TrashMeter from '@/components/Dashboard/AP_TrashMeter.vue';
-import DashboardIcon from "@/assets/icons/DashboardIcon.svg"
-import CapacityIcon from "@/assets/icons/CapacityIcon.svg"
-import ChargingIcon from "@/assets/icons/ChargingIcon.svg"
-import DepletingIcon from "@/assets/icons/DepletingIcon.svg"
-import PHIcon from "@/assets/icons/PHIcon.svg"
-import SolarPanelPowerIcon from "@/assets/icons/SolarPanelPowerIcon.svg"
-import SpinIcon from "@/assets/icons/SpinIcon.svg"
-import SunIcon from "@/assets/icons/SunIcon.svg"
-import TimeIcon from "@/assets/icons/TimeIcon.svg"
-import UseIcon from "@/assets/icons/UseIcon.svg"
-import VoltageIcon from "@/assets/icons/VoltageIcon.svg"
-import { useGlobalStore } from '@/stores/globalStore'
+import AP_AquaPodItem from '../components/Dashboard/AP_AquaPodItem.vue';
+import WindSpeedIcon from "../assets/icons/WindSpeedIcon.svg"
+import WindDirectionIcon from "../assets/icons/WindDirectionIcon.svg"
+import SeaDepthIcon from "../assets/icons/SeaDepthIcon.svg"
+import SeaTemperatureIcon from "../assets/icons/SeaTemperatureIcon.svg"
+import AirTemperatureIcon from "../assets/icons/AirTemperatureIcon.svg"
+import AP_DashboardBlock from '../components/Dashboard/AP_DashboardBlock.vue';
+import AP_DashboardBlockSquare from '../components/Dashboard/AP_DashboardBlockSquare.vue';
+import AP_TrashMeter from '../components/Dashboard/AP_TrashMeter.vue';
+import DashboardIcon from "../assets/icons/DashboardIcon.svg"
+import CapacityIcon from "../assets/icons/CapacityIcon.svg"
+import ChargingIcon from "../assets/icons/ChargingIcon.svg"
+import DepletingIcon from "../assets/icons/DepletingIcon.svg"
+import PHIcon from "../assets/icons/PHIcon.svg"
+import SolarPanelPowerIcon from "../assets/icons/SolarPanelPowerIcon.svg"
+import SpinIcon from "../assets/icons/SpinIcon.svg"
+import SunIcon from "../assets/icons/SunIcon.svg"
+import TimeIcon from "../assets/icons/TimeIcon.svg"
+import UseIcon from "../assets/icons/UseIcon.svg"
+import VoltageIcon from "../assets/icons/VoltageIcon.svg"
+import { useGlobalStore } from '../stores/globalStore'
 const globalStore = useGlobalStore()
 </script>
 

@@ -1,5 +1,5 @@
 <script setup>
-import WarningFilledIcon from "@/assets/icons/WarningFilledIcon.svg"
+import WarningFilledIcon from "../../assets/icons/WarningFilledIcon.svg"
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup>
-import ArrowIcon from "@/assets/icons/ArrowIcon.svg"
+import ArrowIcon from "../../assets/icons/ArrowIcon.svg"
 </script>
 
 <template>

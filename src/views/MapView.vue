@@ -40,18 +40,18 @@
 </template>
 
 <script>
-import AP_MapIcon from '@/components/Map/AP_MapIcon.vue';
-import MapImage from "@/assets/images/loading.gif"
-import SeaDepthIcon from "@/assets/icons/SeaDepthIcon.svg"
-import SeaTemperatureIcon from "@/assets/icons/SeaTemperatureIcon.svg"
-import WarningFilledIcon from "@/assets/icons/WarningFilledIcon.svg"
-import WindSpeedIcon from "@/assets/icons/WindSpeedIcon.svg"
-import BoatIcon from "@/assets/icons/BoatIcon.svg"
-import { useGlobalStore } from '@/stores/globalStore'
+import AP_MapIcon from '../components/Map/AP_MapIcon.vue';
+import MapImage from "../assets/images/loading.gif"
+import SeaDepthIcon from "../assets/icons/SeaDepthIcon.svg"
+import SeaTemperatureIcon from "../assets/icons/SeaTemperatureIcon.svg"
+import WarningFilledIcon from "../assets/icons/WarningFilledIcon.svg"
+import WindSpeedIcon from "../assets/icons/WindSpeedIcon.svg"
+import BoatIcon from "../assets/icons/BoatIcon.svg"
+import { useGlobalStore } from '../stores/globalStore'
 import mapboxgl from 'mapbox-gl';
-import MenuIcon from "@/assets/icons/MenuIcon.svg"
-import SearchIcon from "@/assets/icons/SearchIcon.svg"
-import AP_searchInput from "@/components/App/AP_searchInput.vue"
+import MenuIcon from "../assets/icons/MenuIcon.svg"
+import SearchIcon from "../assets/icons/SearchIcon.svg"
+import AP_searchInput from "../components/App/AP_searchInput.vue"
 
 let wait = function (seconds) {
     return new Promise((resolveFn) => {

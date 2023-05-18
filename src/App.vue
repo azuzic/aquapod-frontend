@@ -1,6 +1,6 @@
 <script setup>
-    import AP_BottomMenu from '@/components/App/AP_BottomMenu.vue';
-    import AP_TopMenu from '@/components/App/AP_TopMenu.vue';
+    import AP_BottomMenu from '../src/components/App/AP_BottomMenu.vue';
+    import AP_TopMenu from '../src/components/App/AP_TopMenu.vue';
 </script>
 
 <template>

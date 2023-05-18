@@ -1,6 +1,6 @@
 <script setup>
-import AquapodLogo from "@/assets/logo/AquapodLogo.svg"
-import { useGlobalStore } from '@/stores/globalStore'
+import AquapodLogo from "../assets/logo/AquapodLogo.svg"
+import { useGlobalStore } from '../stores/globalStore'
 const globalStore = useGlobalStore()
 </script>
 <template>

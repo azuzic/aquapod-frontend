@@ -1,9 +1,9 @@
 <script setup>
 import BoatImage from "../assets/images/Boat.png"
-import AP_About from "@/components/Home/AP_About.vue"
-import AP_AquaPodItem from "@/components/Home/AP_AquaPodItem.vue";
-import { useGlobalStore } from '@/stores/globalStore'
-import AP_WarningBlock from "@/components/Warning/AP_WarningBlock.vue";
+import AP_About from "../components/Home/AP_About.vue"
+import AP_AquaPodItem from "../components/Home/AP_AquaPodItem.vue";
+import { useGlobalStore } from '../stores/globalStore'
+import AP_WarningBlock from "../components/Warning/AP_WarningBlock.vue";
 const globalStore = useGlobalStore()
 </script>
 
