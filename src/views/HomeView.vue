@@ -1,5 +1,5 @@
 <script setup>
-import BoatImage from "@/assets/images/Boat.png"
+import BoatImage from "@/assets/images/boat.png"
 import AP_About from "@/components/Home/AP_About.vue"
 import AP_AquaPodItem from "@/components/Home/AP_AquaPodItem.vue";
 import { useGlobalStore } from '@/stores/globalStore'
