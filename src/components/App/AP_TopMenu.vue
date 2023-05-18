@@ -9,12 +9,12 @@ const globalStore = useGlobalStore()
 
 <template>
     <div class="fixed top-0 w-full z-[150] | transition-all duration-500"
-        :class="[['Home', 'Login', 'Warnings'].includes(this.$route.name) ? 'p-0' : 'p-4', this.$route.name == 'Map' ? 'opacity-0' : '']">
+        :class="[enableNavigation ? 'p-0' : 'p-4', enableNavigation2 ? 'opacity-0' : '']">
         <div class="relative TopMenuBG h-14 w-full flex justify-between items-center | transition-all duration-500"
-            :class="['Home', 'Login', 'Warnings'].includes(this.$route.name) ? 'BorderBottom rounded-[0px] pt-1.5 pl-4 pr-6 justify-between' : 'rounded-[200px] px-4 gap-4'">
+            :class="enableNavigation ? 'BorderBottom rounded-[0px] pt-1.5 pl-4 pr-6 justify-between' : 'rounded-[200px] px-4 gap-4'">
             
             <!--BACK BUTTON-->
-            <div v-if="['Login'].includes(this.$route.name)" class="flex items-center w-full h-full gap-1">
+            <div v-if="enableNavigation3" class="flex items-center w-full h-full gap-1">
                 <div @click="$router.go(-1)" class="mb-1">
                     <b class="text-3xl text-AP_DarkFont cursor-pointer">{{ "<--" }}</b> 
                 </div> 
@@ -23,15 +23,15 @@ const globalStore = useGlobalStore()
 
             <!--LOGO-->
             <router-link to="/">
-            <img v-if="['Home', 'Warnings'].includes(this.$route.name)" class="h-7 cursor-pointer" :src="AquapodLogo">
+            <img v-if="enableNavigation4" class="h-7 cursor-pointer" :src="AquapodLogo">
             </router-link>
             
             <!--SEARCH-->
-            <img v-if="['Map', 'Dashboard', 'ControlPanel'].includes(this.$route.name )" class="h-7 absolute left-4" :src="SearchIcon">
-            <AP_searchInput v-if="['Map', 'Dashboard', 'ControlPanel'].includes(this.$route.name)"/>
+            <img v-if="enableNavigation5" class="h-7 absolute left-4" :src="SearchIcon">
+            <AP_searchInput v-if="enableNavigation5"/>
 
             <!--LOGIN BUTTON-->
-            <router-link class="relative h-6 w-6" v-if="['Map', 'Dashboard', 'Home', 'Warnings', 'ControlPanel'].includes(this.$route.name)" to="/Login">
+            <router-link class="relative h-6 w-6" v-if="enableNavigation6" to="/Login">
                 <img class="absolute h-full cursor-pointer z-50" :src="MenuIcon">
             </router-link>
 
@@ -43,9 +43,14 @@ const globalStore = useGlobalStore()
 export default {
     name: "AP_TopMenu",
     components: { AP_searchInput },
-    props: {},
-    data() { return { } },
-    methods: { }
+    computed: {
+        enableNavigation() { return ['Home', 'Login', 'Warnings'].includes(this.$route.name); },
+        enableNavigation2() { return this.$route.name == 'Map'; },
+        enableNavigation3() { return ['Login'].includes(this.$route.name); },
+        enableNavigation4() { return ['Home', 'Warnings'].includes(this.$route.name); },
+        enableNavigation5() { return ['Map', 'Dashboard', 'ControlPanel'].includes(this.$route.name); },
+        enableNavigation6() { return ['Map', 'Dashboard', 'Home', 'Warnings', 'ControlPanel'].includes(this.$route.name); },
+    }
 }
 </script>
 

@@ -27,7 +27,7 @@
                 </div>
 
                 <!--LOGIN BUTTON-->
-                <router-link v-if="['Map', 'Dashboard', 'Home', 'Warnings', 'ControlPanel'].includes(this.$route.name)" to="/Login">
+                <router-link v-if="enableNavigation" to="/Login">
                     <img class="h-5" :src="MenuIcon">
                 </router-link>
 
@@ -66,6 +66,9 @@ export default {
         const globalStore = useGlobalStore()
         const list = globalStore.geojson.features
         return { globalStore, list, MapImage, SeaDepthIcon, SeaTemperatureIcon, WindSpeedIcon, BoatIcon, MenuIcon, SearchIcon }
+    },
+    computed: {
+        enableNavigation() { return ['Map', 'Dashboard', 'Home', 'Warnings', 'ControlPanel'].includes(this.$route.name); },
     },
     data() {
         return {

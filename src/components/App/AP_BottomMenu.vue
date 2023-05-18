@@ -14,22 +14,22 @@ const globalStore = useGlobalStore()
 </script>
 
 <template>
-    <div :class="this.$route.name == 'Login' ? 'translate-y-16' : 'translate-y-0'" 
+    <div :class="enableNavigation1 ? 'translate-y-16' : 'translate-y-0'" 
         class="fixed bottom-0 BottomMenuBG h-14 w-full flex items-center justify-around pb-1.5 z-50 | transition-all duration-500">
         <router-link v-if="globalStore.admin" to="/warnings">
-            <img class="h-7" :src="this.$route.name != 'Warnings' ? WarningIcon : WarningFilledIcon">
+            <img class="h-7" :src="enableNavigation2 ? WarningIcon : WarningFilledIcon">
         </router-link>
         <router-link to="/dashboard">
-            <img class="h-8" :src="this.$route.name != 'Dashboard' ? DashboardIcon : DashboardFilledIcon">
+            <img class="h-8" :src="enableNavigation3 ? DashboardIcon : DashboardFilledIcon">
         </router-link>
         <router-link to="/">
-            <img class="h-7" :src="this.$route.name != 'Home' ? HomeIcon : HomeFilledIcon">
+            <img class="h-7" :src="enableNavigation4 ? HomeIcon : HomeFilledIcon">
         </router-link>
         <router-link to="/map">
-            <img class="h-8" :src="this.$route.name != 'Map' ? MapIcon : MapFilledIcon">
+            <img class="h-8" :src="enableNavigation5 ? MapIcon : MapFilledIcon">
         </router-link>
         <router-link v-if="globalStore.admin" to="/control-panel">
-            <img class="h-7" :src="this.$route.name != 'ControlPanel' ? PanelIcon : PanelFilledIcon">
+            <img class="h-7" :src="enableNavigation6 ? PanelIcon : PanelFilledIcon">
         </router-link>
     </div>
 </template>
@@ -37,8 +37,14 @@ const globalStore = useGlobalStore()
 <script>
 export default {
     name: "AP_BottomMenu",
-    props: {},
-    data() { return {} },
+    computed: {
+        enableNavigation1() { return this.$route.name == 'Login'; },
+        enableNavigation2() { return this.$route.name == 'Warnings'; },
+        enableNavigation3() { return this.$route.name == 'Dashboard'; },
+        enableNavigation4() { return this.$route.name == 'Home'; },
+        enableNavigation5() { return this.$route.name == 'Map'; },
+        enableNavigation6() { return this.$route.name == 'ControlPanel'; },
+    }
 }
 </script>
 
