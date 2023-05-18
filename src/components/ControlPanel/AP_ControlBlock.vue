@@ -13,8 +13,8 @@ import ArrowIcon from "@/assets/icons/ArrowIconDark.svg"
             </div>
             <div class="text-2xl text-AP_AccentFont bg-white px-6 py-2 w-full rounded-lg relative">
                 <u>{{ n }}</u> <b class="text-AP_DarkFont">{{ measure }}</b>
-                <img @click="n < max ? n += this.i : '';" :src="ArrowIcon" class="w-4 h-4 absolute top-1 right-2 cursor-pointer z-10" >
-                <img @click="n > min ? n -= this.i : '';" :src="ArrowIcon" class="w-4 h-4 absolute bottom-1 right-[7px] cursor-pointer z-10 rotate-180" >
+                <img @click="n < max ? n += i : '';" :src="ArrowIcon" class="w-4 h-4 absolute top-1 right-2 cursor-pointer z-10" >
+                <img @click="n > min ? n -= i : '';" :src="ArrowIcon" class="w-4 h-4 absolute bottom-1 right-[7px] cursor-pointer z-10 rotate-180" >
             </div>
         </div>
     </div>
