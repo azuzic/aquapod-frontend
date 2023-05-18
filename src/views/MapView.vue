@@ -27,8 +27,8 @@
                 </div>
 
                 <!--LOGIN BUTTON-->
-                <router-link v-if="enableNavigation" to="/Login">
-                    <img class="h-5" :src="MenuIcon">
+                <router-link class="z-50" v-if="enableNavigation" to="/Login">
+                    <img class="h-5 z-50" :src="MenuIcon">
                 </router-link>
 
             </div>

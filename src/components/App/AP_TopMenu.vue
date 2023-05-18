@@ -31,8 +31,8 @@ const globalStore = useGlobalStore()
             <AP_searchInput v-if="enableNavigation5"/>
 
             <!--LOGIN BUTTON-->
-            <router-link class="relative h-6 w-6" v-if="enableNavigation6" to="/Login">
-                <img class="absolute h-full cursor-pointer z-50" :src="MenuIcon">
+            <router-link class="relative h-6 w-6 " v-if="enableNavigation6" to="/Login">
+                <img class="absolute h-full cursor-pointer" :src="MenuIcon">
             </router-link>
 
         </div>
