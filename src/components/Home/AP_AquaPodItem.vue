@@ -1,7 +1,7 @@
 <script setup>
-import SeaDepthIcon from "../../assets/icons/SeaDepthIcon.svg"
-import SeaTemperatureIcon from "../../assets/icons/SeaTemperatureIcon.svg"
-import WindSpeedIcon from "../../assets/icons/WindSpeedIcon.svg"
+import SeaDepthIcon from "@/assets/icons/SeaDepthIcon.svg"
+import SeaTemperatureIcon from "@/assets/icons/SeaTemperatureIcon.svg"
+import WindSpeedIcon from "@/assets/icons/WindSpeedIcon.svg"
 </script>
 
 <template>

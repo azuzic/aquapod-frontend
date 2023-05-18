@@ -1,10 +1,10 @@
 <script setup>
-import trash_0 from "../../assets/icons/trash/trash_0.svg"
-import trash_25 from "../../assets/icons/trash/trash_25.svg"
-import trash_50 from "../../assets/icons/trash/trash_50.svg"
-import trash_75 from "../../assets/icons/trash/trash_75.svg"
-import trash_90 from "../../assets/icons/trash/trash_90.svg"
-import trash_100 from "../../assets/icons/trash/trash_100.svg"
+import trash_0 from "@/assets/icons/trash/trash_0.svg"
+import trash_25 from "@/assets/icons/trash/trash_25.svg"
+import trash_50 from "@/assets/icons/trash/trash_50.svg"
+import trash_75 from "@/assets/icons/trash/trash_75.svg"
+import trash_90 from "@/assets/icons/trash/trash_90.svg"
+import trash_100 from "@/assets/icons/trash/trash_100.svg"
 </script>
 
 <template>

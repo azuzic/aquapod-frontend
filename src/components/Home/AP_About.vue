@@ -1,5 +1,5 @@
 <script setup>
-import AboutBG from "../../assets/images/aboutBG.svg"
+import AboutBG from "@/assets/images/aboutBG.svg"
 </script>
 
 <template>

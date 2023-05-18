@@ -1,9 +1,9 @@
 <script setup>
-import AquapodLogo from "../../assets/logo/AquapodLogo.svg"
-import MenuIcon from "../../assets/icons/MenuIcon.svg"
-import SearchIcon from "../../assets/icons/SearchIcon.svg"
-import { useGlobalStore } from '../../stores/globalStore'
-import AP_searchInput from "../../components/App/AP_searchInput.vue"
+import AquapodLogo from "@/assets/logo/AquapodLogo.svg"
+import MenuIcon from "@/assets/icons/MenuIcon.svg"
+import SearchIcon from "@/assets/icons/SearchIcon.svg"
+import { useGlobalStore } from '@/stores/globalStore'
+import AP_searchInput from "@/components/App/AP_searchInput.vue"
 const globalStore = useGlobalStore()
 </script>
 

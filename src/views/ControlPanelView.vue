@@ -1,10 +1,10 @@
 <script setup>
-import AP_AquaPodItem from '../components/Dashboard/AP_AquaPodItem.vue';
-import AP_Checkbox from '../components/ControlPanel/AP_Checkbox.vue';
-import SpinIcon from "../assets/icons/SpinIcon.svg"
-import VoltageIcon from "../assets/icons/VoltageIcon.svg"
-import { useGlobalStore } from '../stores/globalStore'
-import AP_ControlBlock from '../components/ControlPanel/AP_ControlBlock.vue';
+import AP_AquaPodItem from '@/components/Dashboard/AP_AquaPodItem.vue';
+import AP_Checkbox from '@/components/ControlPanel/AP_Checkbox.vue';
+import SpinIcon from "@/assets/icons/SpinIcon.svg"
+import VoltageIcon from "@/assets/icons/VoltageIcon.svg"
+import { useGlobalStore } from '@/stores/globalStore'
+import AP_ControlBlock from '@/components/ControlPanel/AP_ControlBlock.vue';
 const globalStore = useGlobalStore()
 </script>
 

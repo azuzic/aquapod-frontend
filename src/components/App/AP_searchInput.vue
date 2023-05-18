@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { useGlobalStore } from '../../stores/globalStore'
+import { useGlobalStore } from '@/stores/globalStore'
 
 let wait = function (seconds) {
     return new Promise((resolveFn) => {
