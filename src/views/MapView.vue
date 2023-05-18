@@ -100,7 +100,7 @@ export default {
     },
     async mounted() {
         await wait(1)
-        return;
+
         mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_KEY;
         
         this.map = new mapboxgl.Map({
