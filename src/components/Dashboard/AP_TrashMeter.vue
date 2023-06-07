@@ -9,12 +9,12 @@ import trash_100 from "@/assets/icons/trash/trash_100.svg"
 
 <template>
     <div class="flex w-full justify-center">
-        <img class="h-36" v-if="amount>95" :src="trash_100">
-        <img class="h-36" v-else-if="amount > 85" :src="trash_90">
-        <img class="h-36" v-else-if="amount > 70" :src="trash_75">
-        <img class="h-36" v-else-if="amount > 45" :src="trash_50">
-        <img class="h-36" v-else-if="amount > 20" :src="trash_25">
-        <img class="h-36" v-else :src="trash_0">
+        <img class="h-36 sm:h-52" v-if="amount>95" :src="trash_100">
+        <img class="h-36 sm:h-52" v-else-if="amount > 85" :src="trash_90">
+        <img class="h-36 sm:h-52" v-else-if="amount > 70" :src="trash_75">
+        <img class="h-36 sm:h-52" v-else-if="amount > 45" :src="trash_50">
+        <img class="h-36 sm:h-52" v-else-if="amount > 20" :src="trash_25">
+        <img class="h-36 sm:h-52" v-else :src="trash_0">
     </div>
 </template>
 

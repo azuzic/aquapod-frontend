@@ -6,10 +6,10 @@
 <template>
     <div class="theme-default w-full h-full">
         <AP_TopMenu/>
-        <div class="min-h-full h-full flex flex-col w-full content md:px-[15%] lg:px-[20%]  xl:px-[30%] transition-all">
+        <div class="min-h-full h-full flex flex-col w-full content transition-all relative"> <!--md:px-[15%] lg:px-[20%]  xl:px-[30%] -->
             <router-view v-slot="{ Component, route }">
-                <transition name="fade">
-                    <component  :is="Component" :key="route.path" />
+                <transition class="absolute" name="fade">
+                    <component class="absolute"  :is="Component" :key="route.path" />
                 </transition>
             </router-view>
         </div>

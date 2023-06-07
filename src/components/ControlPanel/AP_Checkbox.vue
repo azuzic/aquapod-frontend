@@ -14,6 +14,6 @@
     export default {
         name: "AP_Checkbox",
         props: { label: String },
-        data() { return {a:true} },
+        data() { return {a: true} },
     }
 </script>

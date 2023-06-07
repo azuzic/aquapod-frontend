@@ -3,7 +3,7 @@ import ArrowIcon from "@/assets/icons/ArrowIconDark.svg"
 </script>
 
 <template>
-    <div class="w-full h-fit py-2 px-3 data flex items-center rounded-2xl gap-3">
+    <div class="w-full sm:max-w-xs h-fit py-2 px-3 data flex items-center rounded-2xl gap-3">
         <div class="flex justify-center items-center max-w-[44px]">
             <img class="icon h-12" :src="image">
         </div>

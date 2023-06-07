@@ -2,7 +2,7 @@
     <div class="flex flex-col justify-center items-center w-full h-full bg-center bg-no-repeat"
         :style="'background-image: url(' + MapImage + ');'">
 
-        <div class="fixed top-0 w-full z-[150] | transition-all duration-500 p-4">
+        <div class="fixed top-0 sm:left-16 w-full max-w-lg z-[150] | transition-all duration-500 p-4">
             <div class="relative TopMenuBG h-14 w-full flex justify-between items-center | transition-all duration-500 rounded-[200px] px-4 gap-4'">
         
                 <!--SEARCH-->
@@ -17,7 +17,7 @@
                             class="w-full mt-2 | TopMenuBG | TopSearchBG rounded-2xl | overflow-hidden | transition-opacity duration-300 | absolute overflow-y-auto">
                             <ul class="text-sm z-50" aria-labelledby="dropdownDefaultButton">
                                 <div v-for="v in  list " @click="value = v.properties.city; show = false; globalStore.activePod = v; findAquapod(v.geometry.coordinates)" 
-                                    class="block px-6 py-2 text-lg hover:bg-slate-200 cursor-pointer hover:text-AP_DarkFont hover:font-bold z-50"
+                                    class="block px-6 py-2 text-lg hover:bg-AP_DarkFont cursor-pointer hover:text-slate-200 hover:font-bold z-50"
                                     :class="v.properties.city == value ? 'bg-AP_AccentFont text-slate-100' : 'text-AP_DarkFont font-bold'"> 
                                     {{ v.properties.city }} 
                                 </div>   
@@ -27,8 +27,8 @@
                 </div>
 
                 <!--LOGIN BUTTON-->
-                <router-link class="z-50" v-if="enableNavigation" to="/Login">
-                    <img class="h-5 z-50" :src="MenuIcon">
+                <router-link class="z-50 sm:hidden" v-if="enableNavigation" to="/Login">
+                    <i class="fa-solid fa-right-to-bracket text-AP_DarkFont text-3xl"></i>
                 </router-link>
 
             </div>
@@ -116,7 +116,8 @@ export default {
             const el = document.createElement('div');
             el.className = 'w-fit';
             el.innerHTML = ''+
-            '<div class="flex flex-col justify-center items-center h-16 bg-cover bg-center relative p-2 cursor-pointer">'+
+            '<div class="group flex flex-col justify-center items-center h-16 bg-cover bg-center relative p-2 cursor-pointer">'+
+                '<img class="absolute w-10 group-hover:scale-125 transition-all" src="'+BoatIcon+'">'+
                 '<div class="absolute -top-20 markerBG rounded-xl w-full h-full z-20 left-0"></div>'+
                 '<p class="relative -top-20 w-full text-lg text-AP_DarkFont z-50"> Aquapod: <b> '+ marker.properties.city+' </b> </p>'+
                 '<div class="relative -top-20 flex w-full justify-center items-center text-lg text-white z-50 gap-4">'+
@@ -134,7 +135,6 @@ export default {
                     '</div>'+
                 '</div>'+
                 '<div class="markerArrow h-5 w-5 z-0"></div>'+
-                '<img class="absolute w-10" src="'+BoatIcon+'">'+
                 (this.globalStore.admin ? '<img class="absolute mb-8 ml-12 w-5 '+ marker.properties.alert +'" src="'+WarningFilledIcon+'" >' : '')+
             '</div>'
             el.addEventListener('click', () => {
@@ -169,6 +169,9 @@ export default {
     background: linear-gradient(180deg, rgba(218, 235, 255, 0.9) 0%, rgba(218, 255, 251, 0.9) 100%);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
     transform: matrix(0.75, 0.66, -0.75, 0.66, 0, 0);
+}
+.infoIcon {
+    display: none;
 }
 .warningIcon {
     filter: invert(66%) sepia(68%) saturate(493%) hue-rotate(1deg) brightness(99%) contrast(91%);

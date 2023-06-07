@@ -3,7 +3,7 @@ import ArrowIcon from "@/assets/icons/ArrowIcon.svg"
 </script>
 
 <template>
-    <div class="w-full flex gap-2 items-center">
+    <div class="w-full sm:max-w-sm flex gap-2 items-center">
         <div class="relative z-20 w-full group">
             <input v-model="value" @focusout="!focus ? show = false : ''" @click="show = true" readonly
             class="block py-2.5 w-full text-sm bg-AP_DarkFont rounded-full px-4 appearance-none focus:outline-none focus:ring-0 peer caret-transparent"

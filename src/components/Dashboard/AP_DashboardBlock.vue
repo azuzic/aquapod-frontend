@@ -1,5 +1,6 @@
 <template>
-    <div class="w-full h-fit py-2 px-8 data flex items-center rounded-2xl gap-6">
+    <button class="w-full sm:w-fit h-fit py-2 px-8 data flex items-center rounded-2xl gap-6 
+        hover:border-4 focus:border-4 transition-all cursor-pointer text-left">
         <div class="flex justify-center items-center max-w-[44px]">
             <img class="icon w-32" :src="image">
         </div>
@@ -11,7 +12,7 @@
                 {{ value }} <b class="text-AP_DarkFont">{{ measure }}</b>
             </div>
         </div>
-    </div>
+    </button>
 </template>
 
 <script>

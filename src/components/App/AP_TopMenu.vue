@@ -8,10 +8,10 @@ const globalStore = useGlobalStore()
 </script>
 
 <template>
-    <div class="fixed top-0 w-full z-[150] | transition-all duration-500"
-        :class="[enableNavigation ? 'p-0' : 'p-4', enableNavigation2 ? 'opacity-0' : '']">
-        <div class="relative TopMenuBG h-14 w-full flex justify-between items-center | transition-all duration-500"
-            :class="enableNavigation ? 'BorderBottom rounded-[0px] pt-1.5 pl-4 pr-6 justify-between' : 'rounded-[200px] px-4 gap-4'">
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-xl z-[150] | transition-all duration-500"
+        :class="[enableNavigation ? 'p-0 sm:p-4 sm:w-fit' : 'p-4', enableNavigation2 ? 'opacity-0' : '', enableNavigation3 ? 'sm:hidden' : '']">
+        <div class="relative TopMenuBG h-14 w-full sm:rounded-[200px] flex justify-between sm:justify-center items-center | transition-all duration-500"
+            :class="enableNavigation ? 'BorderBottom rounded-[0px] pt-1.5 pl-4 sm:px-8 pr-6 justify-between' : 'rounded-[200px] px-4 gap-4'">
             
             <!--BACK BUTTON-->
             <div v-if="enableNavigation3" class="flex items-center w-full h-full gap-1">
@@ -23,7 +23,7 @@ const globalStore = useGlobalStore()
 
             <!--LOGO-->
             <router-link to="/">
-            <img v-if="enableNavigation4" class="h-7 cursor-pointer" :src="AquapodLogo">
+            <img v-if="enableNavigation4" class="h-7 sm:h-9 cursor-pointer hover:scale-95 transition-all" :src="AquapodLogo">
             </router-link>
             
             <!--SEARCH-->
@@ -31,7 +31,7 @@ const globalStore = useGlobalStore()
             <AP_searchInput v-if="enableNavigation5"/>
 
             <!--LOGIN BUTTON-->
-            <router-link class="relative h-6 w-6 " v-if="enableNavigation6" to="/Login">
+            <router-link class="relative h-6 w-6 sm:hidden z-50" v-if="enableNavigation6" to="/Login">
                 <img class="absolute h-full cursor-pointer" :src="MenuIcon">
             </router-link>
 

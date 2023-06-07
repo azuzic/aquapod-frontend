@@ -1,5 +1,6 @@
 <template>
-    <div class="w-full data flex flex-col py-4 justify-center items-center rounded-2xl gap-2">
+    <button class="w-full sm:w-48 data flex flex-col py-4 justify-center items-center rounded-2xl gap-2 
+        hover:border-4 focus:border-4 hover:-mb-2 transition-all cursor-pointer text-left">
         <div class="w-full h-full flex flex-col justify-between items-center">
             <div class="text-2xl text-AP_SecondaryFont text-center flex justify-center items-center h-full px-1">
                 {{ info }}
@@ -11,7 +12,7 @@
         <div class="text-3xl text-AP_AccentFont w-full flex justify-center items-center">
             {{ value }} <b class="ml-1 text-AP_DarkFont">{{ measure }}</b>
         </div>
-    </div>
+    </button>
 </template>
 
 <script>

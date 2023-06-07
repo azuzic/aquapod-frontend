@@ -8,7 +8,7 @@
                 class="w-full mt-2 | TopMenuBG | TopSearchBG rounded-2xl | overflow-hidden | transition-opacity duration-300 | absolute overflow-y-auto">
                 <ul class="text-sm z-50" aria-labelledby="dropdownDefaultButton">
                     <div v-for="v in  list " @click="value = v.properties.city; show = false; globalStore.activePod = v" 
-                        class="block px-6 py-2 text-lg hover:bg-slate-200 cursor-pointer hover:text-AP_DarkFont hover:font-bold z-50"
+                        class="block px-6 py-2 text-lg hover:bg-AP_DarkFont cursor-pointer hover:text-slate-200 hover:font-bold z-50"
                         :class="v.properties.city == value ? 'bg-AP_AccentFont text-slate-100' : 'text-AP_DarkFont font-bold'"> 
                         {{ v.properties.city }} 
                     </div>   

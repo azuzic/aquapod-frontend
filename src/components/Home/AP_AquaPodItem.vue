@@ -5,8 +5,9 @@ import WindSpeedIcon from "@/assets/icons/WindSpeedIcon.svg"
 </script>
 
 <template>
-    <div class="w-full h-28 px-4">
-        <div class="flex flex-col justify-center items-center w-full h-full bg-cover bg-center rounded-2xl relative overflow-hidden"
+    <div class="w-full sm:w-96 h-28 sm:h-48 px-4 sm:px-0">
+        <div class="flex flex-col justify-center items-center w-full h-full bg-cover bg-center rounded-2xl relative overflow-hidden 
+            hover:contrast-[110%] hover:brightness-110 cursor-pointer transition-all"
             :style="'background-image: url(' + image + ');'">
             
             <div class="absolute AquaPodItemImageBG w-full h-full z-20 top-0 left-0"></div>

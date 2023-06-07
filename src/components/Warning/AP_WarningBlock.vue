@@ -3,7 +3,7 @@ import WarningFilledIcon from "@/assets/icons/WarningFilledIcon.svg"
 </script>
 
 <template>
-    <div class="w-full h-fit py-2 pl-6 pr-2 flex items-center rounded-2xl gap-6" :class="warning ? 'dataWarning' : 'dataDanger'">
+    <div class="w-full sm:max-w-sm h-fit py-2 pl-6 pr-2 flex items-center rounded-2xl gap-6" :class="warning ? 'dataWarning' : 'dataDanger'">
         <div class="flex justify-center items-center min-w-[36px]">
             <img class="icon w-full" :src="WarningFilledIcon">
         </div>
