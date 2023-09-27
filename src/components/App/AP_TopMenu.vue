@@ -48,8 +48,8 @@ export default {
         enableNavigation2() { return this.$route.name == 'Map'; },
         enableNavigation3() { return ['Login'].includes(this.$route.name); },
         enableNavigation4() { return ['Home', 'Warnings'].includes(this.$route.name); },
-        enableNavigation5() { return ['Map', 'Dashboard', 'ControlPanel'].includes(this.$route.name); },
-        enableNavigation6() { return ['Map', 'Dashboard', 'Home', 'Warnings', 'ControlPanel'].includes(this.$route.name); },
+        enableNavigation5() { return ['Map', 'DashboardUser', 'DashboardAdmin', 'ControlPanel'].includes(this.$route.name); },
+        enableNavigation6() { return ['Map', 'DashboardUser', 'DashboardAdmin', 'Home', 'Warnings', 'ControlPanel'].includes(this.$route.name); },
     }
 }
 </script>

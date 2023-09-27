@@ -111,7 +111,7 @@ export default {
         });
 
         // Add markers to the map.
-        for (const marker of this.globalStore.geojson.features) {
+        for (const marker of this.globalStore.allAquapods) {
             // Create a DOM element for each marker.
             const el = document.createElement('div');
             el.className = 'w-fit';
@@ -119,31 +119,31 @@ export default {
             '<div class="group flex flex-col justify-center items-center h-16 bg-cover bg-center relative p-2 cursor-pointer">'+
                 '<img class="absolute w-10 group-hover:scale-125 transition-all" src="'+BoatIcon+'">'+
                 '<div class="absolute -top-20 markerBG rounded-xl w-full h-full z-20 left-0"></div>'+
-                '<p class="relative -top-20 w-full text-lg text-AP_DarkFont z-50"> Aquapod: <b> '+ marker.properties.city+' </b> </p>'+
+                '<p class="relative -top-20 w-full text-lg text-AP_DarkFont z-50"> Aquapod: <b> '+ marker.name+' </b> </p>'+
                 '<div class="relative -top-20 flex w-full justify-center items-center text-lg text-white z-50 gap-4">'+
                     '<div class="flex items-center justify-center">'+
                         '<img class="h-6 mr-1" src="'+SeaTemperatureIcon+'">'+
-                        '<div class=" text-AP_DarkFont flex gap-1"><div class="text-AP_AccentFont"> '+ marker.properties.temp+' </div>°C</div>'+
+                        '<div class=" text-AP_DarkFont flex gap-1"><div class="text-AP_AccentFont"> '+ marker.environment[0].sea_temperature+' </div>°C</div>'+
                     '</div>'+
                     '<div class="flex items-center justify-center">'+
                         '<img class="h-5 mr-1" src="'+WindSpeedIcon+'">'+
-                        '<div class=" text-AP_DarkFont flex gap-1"><div class="text-AP_AccentFont"> '+ marker.properties.wind+' </div>km/h</div>'+
+                        '<div class=" text-AP_DarkFont flex gap-1"><div class="text-AP_AccentFont"> '+ marker.environment[0].wind_power+' </div>km/h</div>'+
                     '</div>'+
                     '<div class="flex items-center justify-center">'+
                         '<img class="h-4 mr-1 text-da" src="'+SeaDepthIcon+'">'+
-                        '<div class=" text-AP_DarkFont flex gap-1"><div class="text-AP_AccentFont"> '+ marker.properties.depth+' </div> m</div>'+
+                        '<div class=" text-AP_DarkFont flex gap-1"><div class="text-AP_AccentFont"> '+ marker.environment[0].sea_depth+' </div> m</div>'+
                     '</div>'+
                 '</div>'+
                 '<div class="markerArrow h-5 w-5 z-0"></div>'+
-                (this.globalStore.admin ? '<img class="absolute mb-8 ml-12 w-5 '+ marker.properties.alert +'" src="'+WarningFilledIcon+'" >' : '')+
+                (this.globalStore.admin ? '<img class="absolute mb-8 ml-12 w-5 '+ ' infoIcon '/*marker.properties.alert*/ +'" src="'+WarningFilledIcon+'" >' : '')+
             '</div>'
             el.addEventListener('click', () => {
-                this.globalStore.activePod = marker; 
-                this.$router.push('/dashboard');
+                this.globalStore.activePodUser = marker; 
+                this.$router.push(!this.globalStore.admin ? '/dashboard-user' : '/dashboard-admin');
             });
             // Add markers to the map.
             new mapboxgl.Marker(el)
-                .setLngLat(marker.geometry.coordinates)
+                .setLngLat([marker.gps_position[0].longitude, marker.gps_position[0].latitude])
                 .addTo(this.map);
         }
     }

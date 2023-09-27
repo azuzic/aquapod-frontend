@@ -1,16 +1,6 @@
-<script setup>
-import AP_AquaPodItem from '@/components/Dashboard/AP_AquaPodItem.vue';
-import AP_Checkbox from '@/components/ControlPanel/AP_Checkbox.vue';
-import SpinIcon from "@/assets/icons/SpinIcon.svg"
-import VoltageIcon from "@/assets/icons/VoltageIcon.svg"
-import { useGlobalStore } from '@/stores/globalStore'
-import AP_ControlBlock from '@/components/ControlPanel/AP_ControlBlock.vue';
-const globalStore = useGlobalStore()
-</script>
-
 <template>
     <div class="flex flex-col justify-center items-center py-24 sm:pt-0 sm:pb-24 w-full px-4 sm:px-0 gap-2">
-        <AP_AquaPodItem :image="globalStore.activePod.properties.image" :city="globalStore.activePod.properties.city" :north="+(globalStore.activePod.geometry.coordinates[1].toFixed(4))" :east="+(globalStore.activePod.geometry.coordinates[0].toFixed(4))" />
+        <AP_AquaPodItem :image="BoatImage" :city="globalStore.activePodAdmin.name" :north="+(globalStore.activePodAdmin.latest_data[1].data.latitude.toFixed(4))" :east="+(globalStore.activePodAdmin.latest_data[1].data.longitude.toFixed(4))" />
 
         <div class="flex flex-col sm:flex-row sm:flex-wrap justify-center sm:justify-start sm:gap-6 items-center sm:items-start w-full px-0 sm:pt-4 sm:px-20 gap-2">
             <AP_Checkbox label="Pumpa upaljena"/>
@@ -31,11 +21,29 @@ const globalStore = useGlobalStore()
 </template>
 
 <script>
+import AP_AquaPodItem from '@/components/Dashboard/AP_AquaPodItem.vue';
+import AP_Checkbox from '@/components/ControlPanel/AP_Checkbox.vue';
+import SpinIcon from "@/assets/icons/SpinIcon.svg"
+import VoltageIcon from "@/assets/icons/VoltageIcon.svg"
+import BoatImage from "@/assets/images/boat.png"
+import AP_ControlBlock from '@/components/ControlPanel/AP_ControlBlock.vue';
+import { useGlobalStore } from '@/stores/globalStore'
+import { AquaPodAdmin } from "@/services"
 export default {
     name: "ControlPanelView",
     components: { AP_AquaPodItem, AP_Checkbox, AP_ControlBlock },
-    props: {},
-    data() {return {}},    
+    setup() {
+        const globalStore = useGlobalStore()
+        return { globalStore, SpinIcon, VoltageIcon, BoatImage }
+    },
+    data() {return {
+        dataBattery: [],
+        dataSolarPanel: [],
+        dataPump: [],
+    }},    
+    async mounted() {
+        this.dataPump = await AquaPodAdmin.GetPump(this.globalStore.activePodUser.name);
+    },
 }
 </script>
 

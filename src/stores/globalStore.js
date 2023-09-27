@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { User, AquaPodPublic } from "@/services"
 import NovigradBG from "@/assets/images/Novigrad.jpg";
 import PorecBG from "@/assets/images/Porec.jpg";
 import ZadarBG from "@/assets/images/Zadar.jpg";
@@ -234,55 +235,31 @@ export const useGlobalStore = defineStore("globalStore", {
                 }
             ],
         },
-        activePod: {
-            properties: {
-                image: NovigradBG,
-                city: "Novigrad",
-                temp: 20,
-                wind: 49,
-                depth: 75,
-                alert: "warningIcon",
-            },
-            data: {
-                windSpeed: "49",
-                windDirection: ["SEE", "(153)''"],
-                seaDepth: "75",
-                seaPH: "8.1",
-                seaTemp: "26",
-                airTemp: "20",
-                pumpRPM: "2000",
-                pumpWork: "2485",
-                solarVoltage: "12.4",
-                solarWork: "1242",
-                solarUse: "3600",
-                accCharge: "85",
-                accDeplete: "76",
-                accVoltage: "12.4",
-                accCapacity: "5210",
-                accCycle: "630",
-                accInsolation: "179.8",
-                trashRemovedTotal: "560,220",
-                trashCapacity: 75,
-            },
-            geometry: {
-                type: "Point",
-                coordinates: [13.556810535332298, 45.31988787320131],
-            },
-        },
-        type: "Brzina vjetra",
+        allAquapods: [],
+        activePodUser: "empty",
+        activePodAdmin: "empty",
+        type: "air_temperature",
         collapse: true,
     }),
     actions: {
-        login() {
-            if (
-                this.email == "admin@gmail.com" &&
-                this.password == "aquapod123"
-            ) {
+        async setup() {
+            this.allAquapods = await AquaPodPublic.GetAquapod()
+        },
+        async login() {
+            try {
+                let formData = new FormData();
+                //formData.append("username",this.email);
+                //formData.append("password",this.password);
+                formData.append("username","admin@maservis.hr");
+                formData.append("password","123");
+                let response = await User.LogIn(formData);
+                localStorage.setItem("user", JSON.stringify(response.data));
                 this.admin = true;
-                console.log("LOGGED IN!");
                 return true;
+            } catch (error) {
+                console.warn("login: " + error);
+                return false;
             }
-            return false;
         },
     },
 });

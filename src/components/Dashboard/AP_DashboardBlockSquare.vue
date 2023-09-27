@@ -21,7 +21,7 @@ export default {
     props: {
         image: String,
         info: String,
-        value: String,
+        value: Number,
         measure: String,
     }, 
 }

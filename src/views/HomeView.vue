@@ -29,13 +29,13 @@ const globalStore = useGlobalStore()
 
         <!--AQUAPOD ITEMS-->
         <div class="flex flex-col sm:flex-row sm:flex-wrap w-full gap-4 sm:px-20" :class="globalStore.admin ? 'sm:justify-start sm:gap-2' : 'mt-8 sm:justify-center sm:gap-8'">
-            <AP_AquaPodItem v-for="i in globalStore.geojson.features" 
-                                        :image="i.properties.image" 
-                                        :city="i.properties.city" 
-                                        :temp="i.properties.temp" 
-                                        :wind="i.properties.wind" 
-                                        :depth="i.properties.depth" 
-                                        @click="globalStore.activePod = i; $router.push('/dashboard')"/>
+            <AP_AquaPodItem v-for="i in globalStore.allAquapods" 
+                                        :image="BoatImage" 
+                                        :city="i.name" 
+                                        :temp="i.environment[0].sea_temperature" 
+                                        :wind="i.environment[0].wind_power" 
+                                        :depth="i.environment[0].sea_depth" 
+                                        @click="globalStore.activePodUser = i; $router.push(!globalStore.admin ? '/dashboard-user' : '/dashboard-admin')"/>
         </div>
 
         <div v-if="globalStore.admin" class="flex flex-col w-full mt-4 gap-2 px-4 sm:px-20">

@@ -1,8 +1,3 @@
-<script setup>
-import AquapodLogo from "@/assets/logo/AquapodLogo.svg"
-import { useGlobalStore } from '@/stores/globalStore'
-const globalStore = useGlobalStore()
-</script>
 <template>
     <div class="flex flex-col justify-center items-center py-24 w-full h-full sm:px-24 gap-2 px-8 md:px-[25%] lg:px-[30%]  xl:px-[35%] ">
 
@@ -26,7 +21,7 @@ const globalStore = useGlobalStore()
                 </div>
             </div>
 
-            <button @click="globalStore.login() ? $router.push('/') : ''"
+            <button @click="login()"
                 class="btn text-AP_DarkFont font-bold text-2xl sm:text-lg px-16 py-4 sm:py-3 rounded-full w-full sm:w-64 hover:opacity-100 opacity-90 transition-all">
                 Prijavi se
             </button>
@@ -36,6 +31,8 @@ const globalStore = useGlobalStore()
 </template>
 
 <script>
+import AquapodLogo from "@/assets/logo/AquapodLogo.svg"
+import { useGlobalStore } from '@/stores/globalStore'
 export default {
     name: "LoginView",
     components: { AquapodLogo },
@@ -43,6 +40,16 @@ export default {
     data() { return {
         hide: true,
     } },
+    setup() {
+        const globalStore = useGlobalStore()
+        return { globalStore, AquapodLogo }
+    },
+    methods: {
+        async login() {
+            let response = await this.globalStore.login();
+            if (response) this.$router.push('/');
+        }
+    }
 }
 </script>
 

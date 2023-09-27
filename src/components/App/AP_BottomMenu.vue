@@ -30,8 +30,8 @@ const globalStore = useGlobalStore()
         <router-link v-if="globalStore.admin" to="/warnings">
             <img class="h-7 hover:scale-90 transition-all" :src="$route.name != 'Warnings' ? WarningIcon : WarningFilledIcon">
         </router-link>
-        <router-link to="/dashboard">
-            <img class="h-8 hover:scale-90 transition-all" :src="$route.name != 'Dashboard' ? DashboardIcon : DashboardFilledIcon">
+        <router-link to="/dashboard-user">
+            <img class="h-8 hover:scale-90 transition-all" :src="!['DashboardUser', 'DashboardAdmin'].includes($route.name) ? DashboardIcon : DashboardFilledIcon">
         </router-link>
         <router-link class="sm:hidden" to="/">
             <img class="h-7 hover:scale-90 transition-all" :src="$route.name != 'Home' ? HomeIcon : HomeFilledIcon">
