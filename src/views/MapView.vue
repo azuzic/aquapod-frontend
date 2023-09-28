@@ -16,10 +16,10 @@
                         <div @mouseleave="focus = false" @mouseenter="focus = true" :class="show ? 'h-fit max-h-64 opacity-100' : 'h-0 opacity-0'"
                             class="w-full mt-2 | TopMenuBG | TopSearchBG rounded-2xl | overflow-hidden | transition-opacity duration-300 | absolute overflow-y-auto">
                             <ul class="text-sm z-50" aria-labelledby="dropdownDefaultButton">
-                                <div v-for="v in  list " @click="value = v.properties.city; show = false; globalStore.activePod = v; findAquapod(v.geometry.coordinates)" 
+                                <div v-for="v in list " @click="value = v.name; show = false; globalStore.activePod = v; findAquapod([v.gps_position[0].longitude, v.gps_position[0].latitude])" 
                                     class="block px-6 py-2 text-lg hover:bg-AP_DarkFont cursor-pointer hover:text-slate-200 hover:font-bold z-50"
-                                    :class="v.properties.city == value ? 'bg-AP_AccentFont text-slate-100' : 'text-AP_DarkFont font-bold'"> 
-                                    {{ v.properties.city }} 
+                                    :class="v.name == value ? 'bg-AP_AccentFont text-slate-100' : 'text-AP_DarkFont font-bold'"> 
+                                    {{ v.name }} 
                                 </div>   
                             </ul>
                         </div>
@@ -64,7 +64,7 @@ export default {
     components: { AP_MapIcon, AP_searchInput },
     setup() {
         const globalStore = useGlobalStore()
-        const list = globalStore.geojson.features
+        const list = globalStore.allAquapods
         return { globalStore, list, MapImage, SeaDepthIcon, SeaTemperatureIcon, WindSpeedIcon, BoatIcon, MenuIcon, SearchIcon }
     },
     computed: {
@@ -81,9 +81,9 @@ export default {
     methods: {
         async updateList() {
             if (this.value.length > 0) {
-                this.list = this.globalStore.geojson.features.filter(feature => feature.properties.city.toLowerCase().includes(this.value));
+                this.list = this.globalStore.allAquapods.filter(aquapod  => aquapod.name.toLowerCase().includes(this.value.toLowerCase()));
             } else {
-                this.list = this.globalStore.geojson.features;
+                this.list = this.globalStore.allAquapods;
             }
             await wait(0.05);
             this.$forceUpdate();
@@ -142,6 +142,7 @@ export default {
                 this.$router.push(!this.globalStore.admin ? '/dashboard-user' : '/dashboard-admin');
             });
             // Add markers to the map.
+            console.log(marker);
             new mapboxgl.Marker(el)
                 .setLngLat([marker.gps_position[0].longitude, marker.gps_position[0].latitude])
                 .addTo(this.map);

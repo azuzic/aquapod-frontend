@@ -240,6 +240,7 @@ export const useGlobalStore = defineStore("globalStore", {
         activePodAdmin: "empty",
         type: "air_temperature",
         collapse: true,
+        margin: {c:false,X:0.5, Y:0.5},
     }),
     actions: {
         async setup() {

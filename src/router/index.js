@@ -57,11 +57,11 @@ router.beforeEach(async (to, from, next) => {
 
     if (["DashboardUser","DashboardAdmin"].includes(to.name)) {
         if (globalStore.activePodUser == "empty") next("/");
-        else {
+        else if (globalStore.admin) {
             let response = await AquaPodAdmin.GetSpecificAquapod(globalStore.activePodUser.name);
             globalStore.activePodAdmin = response;
             next();
-        }
+        } else next();
     }
     else next();
 });

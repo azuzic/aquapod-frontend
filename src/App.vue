@@ -8,6 +8,7 @@ globalStore.setup()
 
 <template>
     <div class="theme-default w-full h-full">
+        <GlobalStoreDebug/>
         <AP_TopMenu/>
         <div class="min-h-full h-full flex flex-col w-full content transition-all relative">
             <router-view v-slot="{ Component, route }">
@@ -21,9 +22,10 @@ globalStore.setup()
 </template>
 
 <script>
+import GlobalStoreDebug from "@/components/App/GlobalStoreDebug.vue";
 export default {
     name: "App",
-    components: { AP_BottomMenu, AP_TopMenu }
+    components: { AP_BottomMenu, AP_TopMenu, GlobalStoreDebug }
 }
 </script>
 

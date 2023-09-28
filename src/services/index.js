@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 
 let Service = axios.create({
     baseURL: "http://localhost:8000/",
-    timeout: 6000,
+    timeout: 6000, 
 });
 
 Service.interceptors.request.use((request) => {
@@ -66,6 +66,19 @@ let AquaPodPublic = {
         } catch (error) {
             let detailedError = {
                 functionName: "AquaPodPublic - GetEnvironment",
+                name: name,
+                error: error,
+            };
+            console.warn(detailedError);
+        }
+    },
+    async GetGpsPosition(name) {
+        try {
+            let response = await Service.get("aquapods/"+name+"/gps-position");
+            return response.data;
+        } catch (error) {
+            let detailedError = {
+                functionName: "AquaPodPublic - GetGpsPosition",
                 name: name,
                 error: error,
             };

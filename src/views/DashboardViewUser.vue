@@ -2,7 +2,7 @@
     <div class="flex flex-col justify-center items-center py-24 sm:pt-0 sm:pb-24 w-full px-4 sm:px-0 gap-2">
         <AP_AquaPodItem :image="BoatImage" :city="globalStore.activePodUser.name" :north="+(globalStore.activePodUser.gps_position[0].latitude.toFixed(4))" :east="+(globalStore.activePodUser.gps_position[0].longitude.toFixed(4))" />
 
-        <p class="font-bold text-5xl sm:text-6xl text-AP_AccentFont mt-4"> {{ globalStore.activePodUser.total_garbage_collected }} </p>
+        <p class="font-bold text-5xl sm:text-6xl text-AP_AccentFont mt-4"> {{ globalStore.activePodUser.total_garbage_collected.toFixed(2) }} </p>
         <p class="pt-2 mb-2 sm:mb-4 font-bold text-base sm:text-xl text-AP_SecondaryFont">KG UKLONJENO</p>
 
         <div class="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center sm:items-start w-full px-0 sm:px-20 gap-2 pb-64 sm:pb-[540px] transition-all">
